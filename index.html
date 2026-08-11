@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>邵致远 · 游戏作品集</title>
+</head>
+<body>
+<style>
+/* 作品集入口 · 与设计文档/看板同一套宣纸墨 + 朱砂红视觉 */
+:root{
+  --paper:#F3F4F1;--panel:#FBFBF9;--panel2:#EEF0EC;--ink:#1B1E24;--soft:#3A404A;--muted:#646B74;--faint:#8A9099;
+  --line:#E2E4DE;--line2:#D3D6CF;--danger:#C23A2C;--danger-ink:#9E2E22;--danger-wash:#F7E9E6;
+  --jade:#2C6E63;--jade-wash:#E5EFEC;--ochre:#9A6A16;
+  --radius:4px;
+  --serif:"Source Han Serif SC","Songti SC","SimSun","Noto Serif CJK SC",Georgia,serif;
+  --sans:"PingFang SC","Microsoft YaHei","Source Han Sans SC","Segoe UI",system-ui,sans-serif;
+  --mono:"Cascadia Code","JetBrains Mono","Consolas",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#14161B;--panel:#1B1E25;--panel2:#20242C;--ink:#E8E5DC;--soft:#C4C7CD;--muted:#989EA7;--faint:#6E747D;
+  --line:#2A2F38;--line2:#353B45;--danger:#E4604E;--danger-ink:#EE7A69;--danger-wash:#2A1B18;
+  --jade:#63B6A6;--jade-wash:#152521;--ochre:#CFA24C;
+}}
+:root[data-theme="dark"]{--paper:#14161B;--panel:#1B1E25;--panel2:#20242C;--ink:#E8E5DC;--soft:#C4C7CD;--muted:#989EA7;--faint:#6E747D;--line:#2A2F38;--line2:#353B45;--danger:#E4604E;--danger-ink:#EE7A69;--danger-wash:#2A1B18;--jade:#63B6A6;--jade-wash:#152521;--ochre:#CFA24C;}
+:root[data-theme="light"]{--paper:#F3F4F1;--panel:#FBFBF9;--panel2:#EEF0EC;--ink:#1B1E24;--soft:#3A404A;--muted:#646B74;--faint:#8A9099;--line:#E2E4DE;--line2:#D3D6CF;--danger:#C23A2C;--danger-ink:#9E2E22;--danger-wash:#F7E9E6;--jade:#2C6E63;--jade-wash:#E5EFEC;--ochre:#9A6A16;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 clamp(1.2rem,5vw,2.4rem)}
+::selection{background:var(--danger);color:#fff}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 90% at 90% -20%,var(--danger-wash) 0%,transparent 55%),linear-gradient(180deg,var(--panel),var(--paper));}
+.hero .wrap{padding:clamp(3rem,8vw,5.5rem) clamp(1.2rem,5vw,2.4rem) clamp(2.2rem,5vw,3.2rem)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--danger);font-weight:600;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--danger)}
+h1.name{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,7vw,4rem);line-height:1.05;margin:1rem 0 .2rem;letter-spacing:.02em}
+h1.name .dot{color:var(--danger)}
+.tagline{font-size:clamp(1.02rem,2.4vw,1.28rem);color:var(--ink-soft,var(--soft));max-width:46ch;margin:.4rem 0 1.4rem;font-weight:450}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.4rem}
+.chip{font-family:var(--mono);font-size:.74rem;padding:.28rem .62rem;border:1px solid var(--line2);border-radius:100px;color:var(--muted);background:var(--panel);white-space:nowrap}
+.chip.on{border-color:var(--danger);color:var(--danger);background:var(--danger-wash)}
+.contact{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:.9rem}
+.contact a,.contact span{color:var(--soft);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.contact a:hover{color:var(--danger-ink)}
+.contact .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+
+/* sections */
+section{padding:clamp(2.4rem,5vw,3.4rem) 0}
+section+section{border-top:1px solid var(--line)}
+.slabel{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 1.3rem}
+
+/* work cards */
+.work{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:1.3rem}
+.work.feat{border-left:3px solid var(--danger)}
+.work-body{padding:clamp(1.2rem,3vw,1.7rem)}
+.work .num{font-family:var(--mono);font-size:.72rem;color:var(--danger);font-weight:600;letter-spacing:.1em}
+.work h3{font-family:var(--serif);font-weight:700;font-size:clamp(1.4rem,3.4vw,1.9rem);margin:.35rem 0 .15rem;line-height:1.15}
+.work .role{font-size:.86rem;color:var(--muted);margin:0 0 .8rem}
+.work p{color:var(--soft);margin:.5rem 0 1rem}
+.work .kw{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.1rem}
+.work .kw span{font-size:.76rem;color:var(--jade);background:var(--jade-wash);border-radius:100px;padding:.2rem .6rem}
+.links{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.88rem;font-weight:600;padding:.5rem .95rem;border-radius:100px;text-decoration:none;border:1px solid var(--line2);color:var(--ink);background:var(--paper);transition:all .14s}
+.btn:hover{border-color:var(--danger);color:var(--danger-ink);transform:translateY(-1px)}
+.btn.primary{background:var(--danger);color:#fff;border-color:var(--danger)}
+.btn.primary:hover{background:var(--danger-ink);color:#fff}
+.btn.todo{color:var(--faint);border-style:dashed}
+.btn .i{font-size:.95rem}
+
+/* skills grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.2rem}
+.card h4{margin:0 0 .6rem;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.card li{font-size:.92rem;color:var(--soft);padding-left:1rem;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;background:var(--jade);border-radius:1px;transform:rotate(45deg)}
+.card li b{color:var(--ink)}
+
+.about p{font-size:1.02rem;color:var(--soft);max-width:62ch}
+.about b{color:var(--ink)}
+
+footer{border-top:1px solid var(--line);background:var(--panel)}
+footer .wrap{padding:1.8rem clamp(1.2rem,5vw,2.4rem);display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+footer a{color:var(--soft);text-decoration:none}footer a:hover{color:var(--danger-ink)}
+.note{font-size:.8rem;color:var(--faint);margin-top:.6rem}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">作品集 / Game Design Portfolio</div>
+    <h1 class="name">邵致远</h1>
+    <div class="contact">
+      <a href="mailto:shaozy0815@126.com"><span class="k">Email</span> shaozy0815@126.com</a>
+      <a href="https://github.com/Qimiaowan666" target="_blank" rel="noopener"><span class="k">GitHub</span> Qimiaowan666 ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <p class="slabel">作品 / Work</p>
+
+  <div class="work feat">
+    <div class="work-body">
+      <div class="num">01 · 主项目 · 个人项目</div>
+      <h3>《未竟之愿》</h3>
+      <p class="role">2D 像素类魂动作游戏 · Unity / C#</p>
+      <p>一款以防守驱动为核心的 2D 类魂横版动作游戏 demo。受到敌方攻击时按住防御进行普通格挡，把受到的伤害转成可回收的“虚血”；成功触发踩准时机的完美格挡、应对特殊攻击的识破，则在免伤的同时赎回虚血、积攒用于释放技能的体力、削减敌方韧性；配合进攻端的连段攻击持续削减韧性，最终把敌人破韧、处决击杀。</p>
+      <div class="links">
+        <a class="btn primary" href="https://www.bilibili.com/video/BV1Wn326vEBE" target="_blank" rel="noopener">▶ 演示视频</a>
+        <a class="btn primary" href="https://github.com/Qimiaowan666/unfulfilled-wish/blob/main/%E6%96%87%E6%A1%A3/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md" target="_blank" rel="noopener"><span class="i">📄</span> 设计文档 (GDD)</a>
+        <a class="btn" href="https://github.com/Qimiaowan666/unfulfilled-wish" target="_blank" rel="noopener"><span class="i">💻</span> GitHub 源码</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="work-body">
+      <div class="num">02 · Game Jam · 个人项目</div>
+      <h3>《THE LINGERING HOUR》</h3>
+      <p class="role">GMTK Game Jam(主题 COUNT DOWN)· 卡牌 · Unity / C# · 24h 制作</p>
+      <p>倒计时主题的卡牌游戏。击败敌人会掉落强力卡牌，但每用一张，最终 Boss 也会跟着变强，需要平衡好强力卡牌的使用。</p>
+      <div class="links">
+        <a class="btn primary" href="https://qimiaowan666.itch.io/the-lingering-hour" target="_blank" rel="noopener"><span class="i">🕹️</span> itch.io 试玩</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">核心能力 / Skills</p>
+  <div class="grid">
+    <div class="card"><h4>战斗设计</h4><ul>
+      <li>完美格挡、识破 · 削韧 · 破韧 · 处决 · 虚血</li>
+      <li>打击反馈与特效（Shader Graph / 粒子系统）</li>
+      <li>多阶段 Boss · 演出编排</li>
+    </ul></div>
+    <div class="card"><h4>系统设计</h4><ul>
+      <li><b>数据驱动可插拔攻击系统 + 配招编辑器</b></li>
+      <li>完整游戏系统（背包 / 装备 / 商店 / 技能 / 经济）</li>
+    </ul></div>
+    <div class="card"><h4>工程实现</h4><ul>
+      <li><b>Unity</b> · <b>C#</b></li>
+      <li>使用 <b>Unity MCP</b> 进行 AI 辅助开发</li>
+    </ul></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>游戏作品集</span>
+    <span><a href="mailto:shaozy0815@126.com">shaozy0815@126.com</a> · <a href="https://github.com/Qimiaowan666" target="_blank" rel="noopener">github.com/Qimiaowan666</a></span>
+  </div>
+</footer>
+
+<script>
+// 主题跟随 —— 由查看端注入 data-theme;此处无需额外逻辑
+</script>
+</body>
+</html>
