@@ -71,7 +71,8 @@ section+section{border-top:1px solid var(--line)}
 .btn .i{font-size:.95rem}
 
 /* skills grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.2rem}
 .card h4{margin:0 0 .6rem;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.4rem}
@@ -129,23 +130,39 @@ footer a{color:var(--soft);text-decoration:none}footer a:hover{color:var(--dange
       </div>
     </div>
   </div>
+
+  <div class="work">
+    <div class="work-body">
+      <div class="num">03 · 关卡拆解 · 个人作品</div>
+      <h3>《杀戮尖塔2》关卡拆解案</h3>
+      <p class="role">卡牌 roguelike · 关卡设计拆解 · 图文 / 思维导图</p>
+      <div class="links">
+        <a class="btn primary" href="./杀戮尖塔2关卡拆解案.pdf" target="_blank" rel="noopener"><span class="i">📄</span> 拆解案(PDF)</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
   <p class="slabel">核心能力 / Skills</p>
   <div class="grid">
+    <div class="card"><h4>系统设计</h4><ul>
+      <li>完整的游戏系统设计（背包 / 装备 / 商店 / 技能 / 经济等）</li>
+      <li>数据驱动可插拔攻击系统 + 配招编辑器</li>
+    </ul></div>
     <div class="card"><h4>战斗设计</h4><ul>
       <li>完美格挡、识破 · 削韧 · 破韧 · 处决 · 虚血</li>
       <li>打击反馈与特效（Shader Graph / 粒子系统）</li>
       <li>多阶段 Boss · 演出编排</li>
     </ul></div>
-    <div class="card"><h4>系统设计</h4><ul>
-      <li><b>数据驱动可插拔攻击系统 + 配招编辑器</b></li>
-      <li>完整游戏系统（背包 / 装备 / 商店 / 技能 / 经济）</li>
-    </ul></div>
     <div class="card"><h4>工程实现</h4><ul>
-      <li><b>Unity</b> · <b>C#</b></li>
-      <li>使用 <b>Unity MCP</b> 进行 AI 辅助开发</li>
+      <li>Unity · C#</li>
+      <li>使用 AI Agent 与 Unity MCP 进行 AI 辅助开发</li>
+    </ul></div>
+    <div class="card"><h4>分析与文档</h4><ul>
+      <li>游戏拆解</li>
+      <li>设计文档</li>
+      <li>结构化表达</li>
     </ul></div>
   </div>
 </section>
@@ -154,7 +171,7 @@ footer a{color:var(--soft);text-decoration:none}footer a:hover{color:var(--dange
 
 <footer>
   <div class="wrap">
-    <span>游戏作品集</span>
+    <span>作品集</span>
     <span><a href="mailto:shaozy0815@126.com">shaozy0815@126.com</a> · <a href="https://github.com/Qimiaowan666" target="_blank" rel="noopener">github.com/Qimiaowan666</a></span>
   </div>
 </footer>
@@ -162,5 +179,6 @@ footer a{color:var(--soft);text-decoration:none}footer a:hover{color:var(--dange
 <script>
 // 主题跟随 —— 由查看端注入 data-theme;此处无需额外逻辑
 </script>
+
 </body>
 </html>
